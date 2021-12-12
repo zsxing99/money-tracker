@@ -14,6 +14,8 @@ import SyncWarning from './SyncWarning';
 import { windowResize } from '../actions/ui/windowResize';
 import { toggleSidebar } from '../actions/ui/sidebar';
 import { bootstrap } from '../actions/app';
+import TestMenu from '../components/TestMenu';
+import TaskHelpFooter from '../components/TaskHelpFooter';
 
 class App extends React.Component {
   componentDidMount() {
@@ -35,16 +37,20 @@ class App extends React.Component {
     }
 
     return (
-      <Router history={this.props.history}>
-        <Switch>
-          <Route path="/auth" exact={true} component={SignIn} />
-          {!this.props.isSetupComplete ? (
-            <Route component={InitialSetup} />
-          ) : (
-            <Route render={this.renderNavigationRoutes} />
-          )}
-        </Switch>
-      </Router>
+      <div>
+        <Router history={this.props.history}>
+          <Switch>
+            <Route path="/auth" exact={true} component={SignIn} />
+            {!this.props.isSetupComplete ? (
+              <Route component={InitialSetup} />
+            ) : (
+              <Route render={this.renderNavigationRoutes} />
+            )}
+          </Switch>
+        </Router>
+        <TaskHelpFooter />
+        <TestMenu onClick={onTestMenuClick} />
+      </div>
     );
   }
 
@@ -92,6 +98,15 @@ class App extends React.Component {
   };
 }
 
+function onTestMenuClick() {
+  // browserAlertTracking();
+  if (window.confirm('Are you sure you want to finish this task?')) {
+    // setIsVisible(true);
+    localStorage.setItem('taskComplete', true);
+    localStorage.setItem('taskInProgress', true);
+    window.location.href = '/volunteer-dashboard';
+  }
+}
 function flatten(routes) {
   let flatRoutes = [];
   routes.forEach(route => {
