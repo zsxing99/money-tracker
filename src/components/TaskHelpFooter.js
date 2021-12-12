@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { tasks } from '../utils/usabilityTasks';
+import { tasks } from '../util/usabilityTasks';
 import { makeStyles } from '@material-ui/core/styles';
 import { Fab } from '@material-ui/core';
 import * as Survey from 'survey-react';
@@ -12,6 +12,7 @@ import Modal from 'react-modal';
 const useStyles = makeStyles(theme => ({
   bottomRight: {
     backgroundColor: '#00acc1 !important',
+    color: 'white',
     border: '0px !important',
     position: 'fixed',
     bottom: theme.spacing(1.5),
@@ -71,7 +72,7 @@ function TestMenu(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const onClick = () => {
-    props.trackTaskDescriptionButtonClick();
+    //props.trackTaskDescriptionButtonClick();
     setIsOpen(true);
   };
   const onComplete = () => setIsOpen(false);

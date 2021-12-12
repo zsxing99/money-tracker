@@ -3,7 +3,7 @@ import { useState } from 'react';
 import * as Survey from 'survey-react';
 import 'survey-react/survey.css';
 import Modal from 'react-modal';
-import { getTaskGroup, getTask } from '../utils/usabilityTasks';
+import { getTaskGroup, getTask } from '../util/usabilityTasks';
 //import { resetAlertCount, getAlertCount } from '../tracking/wrapper/alert';
 
 const TASK_COUNT = 6;

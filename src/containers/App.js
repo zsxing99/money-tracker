@@ -16,6 +16,7 @@ import { toggleSidebar } from '../actions/ui/sidebar';
 import { bootstrap } from '../actions/app';
 import TestMenu from '../components/TestMenu';
 import TaskHelpFooter from '../components/TaskHelpFooter';
+import ParticipantSurvey from './participantSurvey';
 
 class App extends React.Component {
   componentDidMount() {
@@ -38,6 +39,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <ParticipantSurvey isVisible="true" />
         <Router history={this.props.history}>
           <Switch>
             <Route path="/auth" exact={true} component={SignIn} />
@@ -104,7 +106,7 @@ function onTestMenuClick() {
     // setIsVisible(true);
     localStorage.setItem('taskComplete', true);
     localStorage.setItem('taskInProgress', true);
-    window.location.href = '/volunteer-dashboard';
+    window.location.href = '/';
   }
 }
 function flatten(routes) {
