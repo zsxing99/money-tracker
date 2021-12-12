@@ -80,7 +80,7 @@ class App extends React.Component {
                 <Header label={route.label} />
                 <div className="container">
                   <DemoNotice />
-                  <SyncWarning />
+                  {/* <SyncWarning /> */}
                   <route.component {...props} />
                 </div>
               </React.Fragment>
