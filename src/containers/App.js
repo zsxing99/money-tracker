@@ -10,7 +10,6 @@ import InitialSetup from './InitialSetup';
 import SidebarMenu from './SidebarMenu';
 import Header from '../components/Header';
 import DemoNotice from './DemoNotice';
-import SyncWarning from './SyncWarning';
 import { windowResize } from '../actions/ui/windowResize';
 import { toggleSidebar } from '../actions/ui/sidebar';
 import { bootstrap } from '../actions/app';
@@ -88,7 +87,6 @@ class App extends React.Component {
                 <Header label={route.label} />
                 <div className="container">
                   <DemoNotice />
-                  <SyncWarning />
                   <route.component {...props} />
                 </div>
               </React.Fragment>
