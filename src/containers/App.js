@@ -15,8 +15,7 @@ import { toggleSidebar } from '../actions/ui/sidebar';
 import { bootstrap } from '../actions/app';
 import TestMenu from '../components/TestMenu';
 import TaskHelpFooter from '../components/TaskHelpFooter';
-// import ParticipantSurvey from './ParticipantSurvey';
-import configuredTracker from 'tracking/configureTracker';
+import ParticipantSurvey from './ParticipantSurvey';
 
 class App extends React.Component {
   componentDidMount() {
