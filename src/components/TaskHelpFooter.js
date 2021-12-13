@@ -6,8 +6,8 @@ import { Fab } from '@material-ui/core';
 import * as Survey from 'survey-react';
 import 'survey-react/survey.css';
 import Modal from 'react-modal';
-//import { withTracking } from 'react-tracker';
-//import { taskDescriptionButtonClick } from '../tracking/events/events';
+import { withTracking } from 'react-tracker';
+import { taskDescriptionButtonClick } from '../tracking/events/events';
 
 const useStyles = makeStyles(theme => ({
   bottomRight: {
@@ -72,7 +72,7 @@ function TestMenu(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const onClick = () => {
-    //props.trackTaskDescriptionButtonClick();
+    props.trackTaskDescriptionButtonClick();
     setIsOpen(true);
   };
   const onComplete = () => setIsOpen(false);
@@ -102,14 +102,13 @@ function TestMenu(props) {
   );
 }
 
-// const mapTrackingToProps = trackEvent => {
-//   return {
-//     trackTaskDescriptionButtonClick: () =>
-//       trackEvent(taskDescriptionButtonClick())
-//   };
-// };
+const mapTrackingToProps = trackEvent => {
+  return {
+    trackTaskDescriptionButtonClick: () =>
+      trackEvent(taskDescriptionButtonClick())
+  };
+};
 
-//const TestMenuWithTracking = withTracking(mapTrackingToProps)(TestMenu);
-const TestMenuWithTracking = TestMenu;
+const TestMenuWithTracking = withTracking(mapTrackingToProps)(TestMenu);
 
 export default TestMenuWithTracking;

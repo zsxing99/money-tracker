@@ -7,6 +7,8 @@ import Root from './containers/Root';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './store/configureStore';
+import { TrackerProvider } from 'react-tracker'
+import configuredTracker from './tracking/configureTracker';
 
 Sentry.init({
   dsn: 'https://5ae855d4c1d840c1b06679123069574f@sentry.io/1335198'
@@ -15,7 +17,9 @@ Sentry.init({
 const store = configureStore();
 const history = createBrowserHistory();
 ReactDOM.render(
-  <Root store={store} history={history} />,
+  <TrackerProvider tracker={configuredTracker}>
+    <Root store={store} history={history} />
+  </TrackerProvider>,
   document.getElementById('root')
 );
 
