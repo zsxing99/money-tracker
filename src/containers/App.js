@@ -16,6 +16,7 @@ import { bootstrap } from '../actions/app';
 import TestMenu from '../components/TestMenu';
 import TaskHelpFooter from '../components/TaskHelpFooter';
 import ParticipantSurvey from './participantSurvey';
+import configuredTracker from 'tracking/configureTracker';
 
 class App extends React.Component {
   componentDidMount() {

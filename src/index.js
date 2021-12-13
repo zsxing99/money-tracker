@@ -8,13 +8,14 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './store/configureStore';
 import { TrackerProvider } from 'react-tracker'
+import trackingMiddleware from 'tracking/trackingMiddleware';
 import configuredTracker from './tracking/configureTracker';
 
 Sentry.init({
   dsn: 'https://5ae855d4c1d840c1b06679123069574f@sentry.io/1335198'
 });
 
-const store = configureStore();
+const store = configureStore({}, trackingMiddleware(configuredTracker));
 const history = createBrowserHistory();
 ReactDOM.render(
   <TrackerProvider tracker={configuredTracker}>
