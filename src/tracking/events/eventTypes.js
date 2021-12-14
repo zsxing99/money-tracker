@@ -1,12 +1,12 @@
 import moment from "moment";
 
-export const step = (pageName, interactionType, actionType, action) => ({
+export const step = (interactionType, actionType, action, reduxAction, timestamp = moment().format()) => ({
     type: "STEP",
     data: {
-        pageName,
         interactionType,
         actionType,
         action,
-        timestamp: moment().format()
+        reduxAction,
+        timestamp
     }
 });

@@ -7,7 +7,6 @@ import Actions from './actions';
  */
  export const taskDescriptionButtonClick = () => {
     return step(
-        null,
         Interactions.CLICK,
         Actions.TASK_DESCRIPTION,
         "User clicked on task description button."

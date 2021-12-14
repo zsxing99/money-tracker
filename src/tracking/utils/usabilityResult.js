@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { getTask } from './usabilityTasks';
+import { reducxEvent2HOC } from '../events/mappingEvents';
+import * as _ from 'lodash';
 
 const TASK_COUNT = 6;
 
@@ -30,5 +32,27 @@ export function sendResult() {
 
     console.log(payload);
 
+    const newPayload = mapTasksFromReduxToHOC(_.clone(payload));
+    console.log(newPayload);
+
     // TODO: send payload to aws
+}
+
+const mapTasksFromReduxToHOC = (payload) => {
+    const newTasks = [];
+
+    payload.tasks.forEach(task => {
+        const newEvents = [];
+
+        task.events.forEach(event => {
+            newEvents.push(reducxEvent2HOC(event));
+        });
+
+        task.events = newEvents;
+        newTasks.push(task);
+    });
+
+    payload.tasks = newTasks;
+
+    return payload;
 }
