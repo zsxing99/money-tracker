@@ -318,7 +318,7 @@ const defaultStep = (type, timestamp) => {
 
 export const reducxEvent2HOC = (event) => {
     switch (event.type) {
-        case 'TOGGLE_SIDEBAR': return navigationTo(event.timestamp);
+        case 'STEP': return event;
         case 'TOGGLE_SIDEBAR': return navigationTo(event.timestamp);
         case 'TOGGLE_SECTION_COLLAPSE': return collapseClick(event.timestamp);
         case 'CHANGE_SETTINGS_CURRENCY': return changeSettingsCurrency(event.timestamp);
