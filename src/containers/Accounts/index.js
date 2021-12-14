@@ -15,10 +15,12 @@ import ModalForm from '../../components/Account/ModalForm';
 import AccountsList from './List';
 import AccountForm from './Form';
 import { getAccountsAsOptions } from '../../selectors/entities/accounts';
+import { saveWaitTime } from '../../tracking/wrapper/wait';
 
 class Accounts extends React.Component {
   componentWillMount() {
     this.props.loadAccounts();
+    saveWaitTime();
   }
 
   render() {

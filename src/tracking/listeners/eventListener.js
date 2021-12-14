@@ -23,7 +23,7 @@ export const onAction = (event = {}, eventsHistory) => {
 }
 
 const excludeEventTypes = [
-    // FUNCTIONS NOT IMPLEMENTED
+    // FUNCTIONALITIES NOT IMPLEMENTED
     'DISMISS_SYNC_WARNING',
     'SET_PENDING_CHANGES_FLAG',
     'SYNC',
@@ -68,6 +68,7 @@ const excludeEventTypes = [
     'FILL_IN_TRANSACTION_FORM',
 
     // INFORMATION
+    'WINDOW_RESIZE',
     'UPDATE_EXCHANGE_RATE_SUCCESS',
     'UPDATE_EXCHANGE_RATE_FAILURE',
     'SAVE_ACCOUNT_SUCCESS',

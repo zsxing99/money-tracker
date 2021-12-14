@@ -16,6 +16,7 @@ import { bootstrap } from '../actions/app';
 import TestMenu from '../components/TestMenu';
 import TaskHelpFooter from '../components/TaskHelpFooter';
 import ParticipantSurvey from './ParticipantSurvey';
+import { browserAlertTracking } from '../tracking/wrapper/alert';
 
 class App extends React.Component {
   componentDidMount() {
@@ -99,7 +100,7 @@ class App extends React.Component {
 }
 
 function onTestMenuClick() {
-  // browserAlertTracking();
+  browserAlertTracking();
   if (window.confirm('Are you sure you want to finish this task?')) {
     // setIsVisible(true);
     localStorage.setItem('taskComplete', true);

@@ -11,10 +11,12 @@ import { completeSetup } from '../../actions/settings';
 import { loadAccounts } from '../../actions/entities/accounts';
 import { getAccountsList } from '../../selectors/entities/accounts';
 import { isSignedIn } from 'features/user/state/User.selector';
+import { saveWaitTime } from '../../tracking/wrapper/wait';
 
 class InitialSetup extends React.Component {
   componentDidMount() {
     this.props.loadAccounts();
+    saveWaitTime();
   }
 
   render() {

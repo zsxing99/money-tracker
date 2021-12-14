@@ -14,8 +14,8 @@ export function sendResult() {
     payload.demographics.group = taskGroup;
 
     payload.survey = JSON.parse(localStorage.getItem(`surveyResults`));
-    // payload.totalWaitTime = parseInt(localStorage.getItem('total_wait_time'));
-    // payload.numberOfWaits = parseInt(localStorage.getItem('number_of_waits'));
+    payload.totalWaitTime = parseInt(localStorage.getItem('total_wait_time'));
+    payload.numberOfWaits = parseInt(localStorage.getItem('number_of_waits'));
 
     const tasks = [];
     for (let i = 0; i < TASK_COUNT; i++) {
@@ -23,7 +23,7 @@ export function sendResult() {
 
         task.id = getTask(taskGroup, i + 1).id;
         task.events = JSON.parse(localStorage.getItem(`task${i + 1}_events`));
-        // task.alerts = parseInt(localStorage.getItem(`task${i + 1}_alerts`));
+        task.alerts = parseInt(localStorage.getItem(`task${i + 1}_alerts`));
 
         tasks.push(task);
     }
