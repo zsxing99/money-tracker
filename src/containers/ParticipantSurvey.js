@@ -3,7 +3,8 @@ import { useState } from 'react';
 import * as Survey from 'survey-react';
 import 'survey-react/survey.css';
 import Modal from 'react-modal';
-import { getTaskGroup, getTask } from '../util/usabilityTasks';
+import { getTaskGroup, getTask } from '../tracking/utils/usabilityTasks';
+import { sendResult } from '../tracking/utils/usabilityResult';
 //import { resetAlertCount, getAlertCount } from '../tracking/wrapper/alert';
 
 const TASK_COUNT = 6;
@@ -355,6 +356,7 @@ export default function ParticipantSurvey(props) {
   function saveTaskResult(result) {
     // Store collected events
     var events = JSON.parse(localStorage.getItem('events'));
+    console.log(`task${taskId}_events`, JSON.stringify(events));
     localStorage.setItem(`task${taskId}_events`, JSON.stringify(events));
 
     // Reset events array
@@ -393,7 +395,7 @@ export default function ParticipantSurvey(props) {
     var comment = result.data.comment ? result.data.comment : '';
     localStorage.setItem('comment', comment);
 
-    //sendResult();
+    sendResult();
   }
 
   Survey.StylesManager.applyTheme();

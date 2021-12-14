@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { tasks } from '../util/usabilityTasks';
+import { tasks } from '../tracking/utils/usabilityTasks';
 import { makeStyles } from '@material-ui/core/styles';
 import { Fab } from '@material-ui/core';
 import * as Survey from 'survey-react';

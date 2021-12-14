@@ -27,26 +27,26 @@ export default [
     icon: 'line chart',
     component: Reports
   },
-  {
-    path: '/transactions/:accountId?',
-    link: '/transactions',
-    exact: false,
-    label: 'Transactions',
-    icon: 'exchange',
-    component: WorkInProgress
-  },
-  {
-    path: '/budget',
-    exact: false,
-    label: 'Budget',
-    icon: 'shopping basket',
-    component: WorkInProgress
-  },
-  {
-    path: '/settings',
-    exact: true,
-    label: 'Settings',
-    icon: 'options',
-    component: Settings
-  }
+  // {
+  //   path: '/transactions/:accountId?',
+  //   link: '/transactions',
+  //   exact: false,
+  //   label: 'Transactions',
+  //   icon: 'exchange',
+  //   component: Transactions
+  // },
+  // {
+  //   path: '/budget',
+  //   exact: false,
+  //   label: 'Budget',
+  //   icon: 'shopping basket',
+  //   component: WorkInProgress
+  // },
+  // {
+  //   path: '/settings',
+  //   exact: true,
+  //   label: 'Settings',
+  //   icon: 'options',
+  //   component: Settings
+  // }
 ];
