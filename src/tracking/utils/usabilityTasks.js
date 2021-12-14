@@ -27,8 +27,8 @@ const task4 = {
   id: '03',
   title: 'Find the Total Expense',
   scenario:
-    'You want to check your history transactions and determine how much you spent on food in December 2021.',
-  description: 'Find the total amount you spent on food in Dec 2021'
+    'You want to check your history transactions and determine how much you spent on books in December 2021.',
+  description: 'Find the total amount you spent on books in Dec 2021'
 };
 
 const task5 = {
