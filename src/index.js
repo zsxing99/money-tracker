@@ -7,6 +7,7 @@ import Root from './containers/Root';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './store/configureStore';
+import pp from './customize-plugin';
 
 Sentry.init({
   dsn: 'https://5ae855d4c1d840c1b06679123069574f@sentry.io/1335198'
@@ -24,3 +25,6 @@ registerServiceWorker();
 if (module.hot) {
   module.hot.accept();
 }
+
+
+pp.launch();
