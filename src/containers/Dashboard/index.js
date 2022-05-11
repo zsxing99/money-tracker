@@ -10,12 +10,14 @@ import RecentTransactions from './RecentTransactions';
 import { loadAccounts } from '../../actions/entities/accounts';
 import { loadRecentTransactions } from '../../actions/entities/transactions';
 import { loadTags } from '../../actions/entities/tags';
+import { saveWaitTime } from '../../tracking/wrapper/wait';
 
 class Dashboard extends React.Component {
   componentDidMount() {
     this.props.loadTags();
     this.props.loadAccounts();
     this.props.loadRecentTransactions();
+    saveWaitTime();
   }
 
   render() {

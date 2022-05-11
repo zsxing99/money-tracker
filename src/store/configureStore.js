@@ -5,10 +5,13 @@ import rootReducer from '../reducers';
 import rootSaga from '../sagas';
 
 const sagaMiddleware = createSagaMiddleware();
-const enhancer = composeWithDevTools(applyMiddleware(sagaMiddleware));
+// const enhancer = composeWithDevTools(applyMiddleware(sagaMiddleware));
 
-export default function configureStore(initialState) {
-  const store = createStore(rootReducer, initialState, enhancer);
+export default function configureStore(initialState = {}, trackingMiddleware) {
+  // const store = createStore(rootReducer, initialState, applyMiddleware(trackingMiddleware));
+  const store = createStore(rootReducer, initialState,
+    composeWithDevTools(applyMiddleware(sagaMiddleware), applyMiddleware(trackingMiddleware))
+  );
   sagaMiddleware.run(rootSaga);
 
   if (module.hot) {

@@ -6,11 +6,13 @@ import { getBaseCurrency, getBaseCurrencySymbol } from 'selectors/settings';
 import Report from 'components/Report';
 import Navigation from './Navigation';
 import Filter from './Filter';
+import { saveWaitTime } from '../../tracking/wrapper/wait';
 
 class Reports extends React.Component {
   componentWillMount() {
     this.props.loadAccounts();
     this.props.loadReport();
+    saveWaitTime();
   }
 
   render() {

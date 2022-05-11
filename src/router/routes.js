@@ -14,14 +14,6 @@ export default [
     component: Dashboard
   },
   {
-    path: '/transactions/:accountId?',
-    link: '/transactions',
-    exact: false,
-    label: 'Transactions',
-    icon: 'exchange',
-    component: Transactions
-  },
-  {
     path: '/accounts',
     exact: false,
     label: 'Accounts',
@@ -34,6 +26,14 @@ export default [
     label: 'Reports',
     icon: 'line chart',
     component: Reports
+  },
+  {
+    path: '/transactions/:accountId?',
+    link: '/transactions',
+    exact: false,
+    label: 'Transactions',
+    icon: 'exchange',
+    component: Transactions
   },
   {
     path: '/budget',

@@ -6,12 +6,17 @@ import Root from './containers/Root';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './store/configureStore';
+import { TrackerProvider } from 'react-tracker'
+import trackingMiddleware from 'tracking/trackingMiddleware';
+import configuredTracker from './tracking/configureTracker';
 
 
-const store = configureStore();
+const store = configureStore({}, trackingMiddleware(configuredTracker));
 const history = createBrowserHistory();
 ReactDOM.render(
-  <Root store={store} history={history} />,
+  <TrackerProvider tracker={configuredTracker}>
+    <Root store={store} history={history} />
+  </TrackerProvider>,
   document.getElementById('root')
 );
 

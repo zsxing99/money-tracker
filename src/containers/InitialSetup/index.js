@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Divider, Header } from 'semantic-ui-react';
+import { Button, Divider, Header, Modal } from 'semantic-ui-react';
 import CurrencyInput from '../Settings/Currency/Input';
 import CurrencyExchangeRate from '../Settings/Currency/ExchangeRate';
 import AccountForm from '../Accounts/Form';
@@ -11,10 +11,12 @@ import { completeSetup } from '../../actions/settings';
 import { loadAccounts } from '../../actions/entities/accounts';
 import { getAccountsList } from '../../selectors/entities/accounts';
 import { isSignedIn } from 'features/user/state/User.selector';
+import { saveWaitTime } from '../../tracking/wrapper/wait';
 
 class InitialSetup extends React.Component {
   componentDidMount() {
     this.props.loadAccounts();
+    saveWaitTime();
   }
 
   render() {
