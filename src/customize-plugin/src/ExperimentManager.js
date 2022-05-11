@@ -1,6 +1,5 @@
 import { ConsoleSpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
 import { WebTracerProvider } from '@opentelemetry/sdk-trace-web';
-import { DocumentLoadInstrumentation } from '@opentelemetry/instrumentation-document-load';
 import { ZoneContextManager } from '@opentelemetry/context-zone';
 import { UserInteractionInstrumentation } from '@opentelemetry/instrumentation-user-interaction';
 import { registerInstrumentations } from '@opentelemetry/instrumentation';
@@ -68,7 +67,6 @@ class ExperimentManager {
     // Registering instrumentations
     registerInstrumentations({
       instrumentations: [
-        new DocumentLoadInstrumentation(),
         new UserInteractionInstrumentation({
           eventNames: ['click'],
         }),
@@ -77,4 +75,4 @@ class ExperimentManager {
   }
 }
 
-export default ExperimentManager;
+export default    ExperimentManager;
